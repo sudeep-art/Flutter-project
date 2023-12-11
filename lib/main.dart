@@ -42,7 +42,6 @@ class SearchBarApp extends StatefulWidget
 }
 
 class _SearchBarAppState extends State<SearchBarApp> {
-
   int _currentIndex = 1;
   final List<Widget> _screens = [
     CategoryScreen(),// Add your other screens here
