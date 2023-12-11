@@ -1,20 +1,28 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_demo/category_screen.dart';
 import 'profile_screen.dart';
 import 'category_screen.dart';
+import 'item_lists.dart';
 
 //import 'package:google_fonts/google_fonts.dart';
 
 void main() {
- runApp(const MyApp());
- runApp(const SearchBarApp());
+  runApp(const MyApp());
+// runApp(const SearchBarApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -25,16 +33,15 @@ class MyApp extends StatelessWidget {
       //       ),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        //colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 58, 183, 121)),
+          //colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 58, 183, 121)),
           //useMaterial3: true,
-      ),
-      home: const SearchBarApp(),
+          ),
+      home: SearchBarApp(),
     );
   }
 }
 
-class SearchBarApp extends StatefulWidget 
-{
+class SearchBarApp extends StatefulWidget {
   const SearchBarApp({super.key});
 
   @override
@@ -43,20 +50,25 @@ class SearchBarApp extends StatefulWidget
 
 class _SearchBarAppState extends State<SearchBarApp> {
   int _currentIndex = 1;
-  final List<Widget> _screens = [
-    CategoryScreen(),// Add your other screens here
-    Container(), // Placeholder for the home screen
+  final List<Widget> _screens = <Widget>[
+    //  CategoryScreen(),
+    Container(),
     ProfileScreen(),
   ];
-
+  // void _oneTtemTap(int Index){
+  //   setState(() {
+  //      _screens[index];
+  //   });
+  //   _screens[_selectIndex];
+  // }
   final List<String> images = [
-      'assets/laptop.jpg',
-      'assets/img4.jpg',
-      'assets/Image6.jpg',
-      'assets/img5.jpg',
-      'assets/Image7.jpg',
+    'assets/laptop.jpg',
+    'assets/img4.jpg',
+    'assets/Image6.jpg',
+    'assets/img5.jpg',
+    'assets/Image7.jpg',
   ];
-  
+
   final List<String> gridImages = [
     'assets/Image.jpg',
     'assets/Image1.jpg',
@@ -76,7 +88,6 @@ class _SearchBarAppState extends State<SearchBarApp> {
     'assets/iphone2.jpeg',
     'assets/img4.jpg',
     'assets/img1.jpg',
-
   ];
   final List<String> itemNames = [
     'SONY Camera',
@@ -103,7 +114,7 @@ class _SearchBarAppState extends State<SearchBarApp> {
   final List<String> itemNames1 = [
     'From ₹29,999',
     'From ₹499',
-    'From ₹889', 
+    'From ₹889',
     'From ₹200',
     'From ₹19,999',
     'From ₹599',
@@ -123,52 +134,100 @@ class _SearchBarAppState extends State<SearchBarApp> {
   ];
   //double get radius => 15.0;
 
-  List<Widget> generateImagesTiles(){
-    return images.map((Element) =>ClipRRect(
-      borderRadius: BorderRadius.circular(20.0),
-      child: Image.asset(Element,
-        fit: BoxFit.cover,
-        width: double.infinity,
-      ),
-    )) .toList();
+  List<Widget> generateImagesTiles() {
+    return images
+        .map((Element) => ClipRRect(
+              borderRadius: BorderRadius.circular(20.0),
+              child: Image.asset(
+                Element,
+                fit: BoxFit.cover,
+                width: double.infinity,
+              ),
+            ))
+        .toList();
   }
-  get options => null;
-  
-  get callbackFunction => null;
 
- // bool isDark = false;
+  get options => null;
+
+  get callbackFunction => null;
+  // final Screens = [
+  //   //HomePage(),
+  //   CategoryScreen(),
+  //   ProfileScreen(),
+  // ];
+
+  int index = 1;
+  //  final items: [
+  //         // ignore: non_constant_identifier_names
+  //         const  Icon(
+  //             Icons.category_outlined,
+  //             color: Color.fromARGB(255, 248, 6, 212),
+  //             size: 40,
+  //           ),
+  //          const Icon(
+  //             Icons.home,
+  //             color: Color.fromARGB(255, 248, 6, 212),
+  //             size: 40,
+  //           ),
+  //         const  Icon(
+  //             Icons.account_circle,
+  //             color: Color.fromARGB(255, 248, 6, 212),
+  //             size: 40,
+  //           ),
+  //         ],
+
+  // bool isDark = false;
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData themeData = ThemeData(
-        useMaterial3: true,
-        brightness: Brightness.light);
-         // _screens[_currentIndex];
+    final ThemeData themeData =
+        ThemeData(useMaterial3: true, brightness: Brightness.light);
+    // _screens[_currentIndex];
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themeData,
-      
       home: Scaffold(
         backgroundColor: const Color.fromARGB(255, 255, 198, 247),
         bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Color.fromARGB(255, 255, 198, 247),
-        items: const [
-        Icon(Icons.category_outlined, color: Color.fromARGB(255, 248, 6, 212), size: 40,),
-        Icon(Icons.home, color: Color.fromARGB(255, 248, 6, 212), size: 40,),
-        Icon(Icons.account_circle, color: Color.fromARGB(255, 248, 6, 212), size: 40,),
-        
-      ],
-      
-      onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            }
-            );
-            _screens[_currentIndex];
-          },
+          //index: _currentIndex,
+          height: 70,
+          backgroundColor: Color.fromARGB(255, 255, 198, 247),
+          items: [
+            // ignore: non_constant_identifier_names
+            const Icon(
+              Icons.category_outlined,
+              color: Color.fromARGB(255, 248, 6, 212),
+              size: 40,
+            ),
+            const Icon(
+              Icons.home,
+              color: Color.fromARGB(255, 248, 6, 212),
+              size: 40,
+            ),
+            const Icon(
+              Icons.account_circle,
+              color: Color.fromARGB(255, 248, 6, 212),
+              size: 40,
+            ),
+          ],
+
           index: _currentIndex,
-       ),
+          onTap: (int index) {
+            setState(() {
+              if (index == 2) {
+                //_screens[index];
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfileScreen()),
+                );
+              }
+              //  _screens[index];
+
+              // _currentIndex = index;
+            });
+          },
+        ),
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 255, 198, 247),
           title: Text(
@@ -191,77 +250,84 @@ class _SearchBarAppState extends State<SearchBarApp> {
             IconButton(
               icon: Icon(
                 Icons.shopping_cart,
-                  color: Color.fromARGB(255, 248, 6, 212), size: 45,
+                color: Color.fromARGB(255, 248, 6, 212),
+                size: 45,
               ),
               onPressed: () {
-                // do something
+                // Navigate to the new page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CategoryScreen()),
+                );
               },
             )
-          ] ,
+          ],
         ),
         body: SafeArea(
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-              // _screens[_currentIndex],
+            child: Column(children: [
+              // SizedBox(child: _screens[_currentIndex]),
               SearchAnchor(
-                builder: (BuildContext context, SearchController controller) {
-                  return SearchBar  (
-                    controller: controller,
-                    padding: const MaterialStatePropertyAll<EdgeInsets>(
-                    EdgeInsets.symmetric(horizontal: 15.0)),
-                    //textAlign: TextAlign.center,
-                    hintText: 'Search Your Product',
-                      onTap: () {
-                        controller.openView();
-                      },
-                      onChanged: (_) {
-                        controller.openView();
-                      },
-                       leading: const Icon(Icons.search,size: 30,),
-                          trailing: <Widget>[
-                            Tooltip(
-                              message: 'Change brightness mode',
-                            child: IconButton(
-                              //isSelected: isDark,
-                              onPressed: () {
-                                setState(() {
-                                  //isDark = !isDark;
-                                });
-                              },
-                                icon: const Icon(Icons.mic,size: 25,),
-                                 // selectedIcon: const Icon(Icons.brightness_2_outlined),
-                              ),
-                            )
-                          ],
-                    );
-                }, 
-              suggestionsBuilder:
-                    (BuildContext context, SearchController controller) {
-                      return List<ListTile>.generate(5, (int index) {
-                        final String item = 'item $index';
-                          return ListTile(
-                              title: Text(item),
-                                onTap: () {
-                                  setState(() {
-                                    controller.closeView(item);
-                                  });
-                              },
-                          );
-                        }
-                      );
-            }),
-              
-             const SizedBox(height: 15),
-             //  Center(
-                //    child: GridView.builder(gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),itemCount: 6 ,itemBuilder: (context,index){
+                  builder: (BuildContext context, SearchController controller) {
+                return SearchBar(
+                  controller: controller,
+                  padding: const MaterialStatePropertyAll<EdgeInsets>(
+                      EdgeInsets.symmetric(horizontal: 15.0)),
+                  //textAlign: TextAlign.center,
+                  hintText: 'Search Your Product',
+                  onTap: () {
+                    controller.openView();
+                  },
+                  onChanged: (_) {
+                    controller.openView();
+                  },
+                  leading: const Icon(
+                    Icons.search,
+                    size: 30,
+                  ),
+                  trailing: <Widget>[
+                    Tooltip(
+                      message: 'Change brightness mode',
+                      child: IconButton(
+                        //isSelected: isDark,
+                        onPressed: () {
+                          setState(() {
+                            //isDark = !isDark;
+                          });
+                        },
+                        icon: const Icon(
+                          Icons.mic,
+                          size: 25,
+                        ),
+                        // selectedIcon: const Icon(Icons.brightness_2_outlined),
+                      ),
+                    )
+                  ],
+                );
+              }, suggestionsBuilder:
+                      (BuildContext context, SearchController controller) {
+                return List<ListTile>.generate(5, (int index) {
+                  final String item = 'item $index';
+                  return ListTile(
+                    title: Text(item),
+                    onTap: () {
+                      setState(() {
+                        controller.closeView(item);
+                      });
+                    },
+                  );
+                });
+              }),
+
+              const SizedBox(height: 15),
+              //  Center(
+              //    child: GridView.builder(gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),itemCount: 6 ,itemBuilder: (context,index){
               //     Text("Hello $index");
-             //    },),
-             //  ),
-             //Padding(padding: EdgeInsets.all(20)),
-            CarouselSlider(
-              items: generateImagesTiles(),
-            
+              //    },),
+              //  ),
+              //Padding(padding: EdgeInsets.all(20)),
+              CarouselSlider(
+                items: generateImagesTiles(),
                 options: CarouselOptions(
                   height: 200,
                   aspectRatio: 2.0,
@@ -283,45 +349,41 @@ class _SearchBarAppState extends State<SearchBarApp> {
               Padding(
                 padding: const EdgeInsets.only(left: 20.0),
                 child: Container(
-                  
                   alignment: Alignment.bottomLeft,
-                  child: 
-                  Text( 'Deals for you....',
+                  child: Text(
+                    'Deals for you....',
                     style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                    ),),
-                  
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
-              
+
               //const SizedBox(height: 8),
-              
-               Padding(
-                  padding: const EdgeInsets.all(8.0),
-                
-                  child: GridView.builder(
-                
-                    gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
+
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GridView.builder(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                       crossAxisSpacing: 13.0,
                       mainAxisSpacing: 13.0,
                     ),
-                      itemCount: gridImages.length,
+                    itemCount: gridImages.length,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     itemBuilder: (BuildContext context, int index) {
                       return ClipRRect(
                         borderRadius: BorderRadius.circular(20.0),
                         child: Container(
-                          
                           color: Colors.white,
                           // child:
-                          //       Image.asset(gridImages[index]),  
+                          //       Image.asset(gridImages[index]),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              
                               Image.asset(
                                 gridImages[index],
                                 height: 75,
@@ -329,24 +391,24 @@ class _SearchBarAppState extends State<SearchBarApp> {
                                 fit: BoxFit.contain,
                                 //fit: BoxFit.fill,
                                 //fit: applyBoxFit(100, inputSize, outputSize),
-                               // fit: BoxFit.scaleDown,
-                                ),
-                                
+                                // fit: BoxFit.scaleDown,
+                              ),
                               const SizedBox(height: 5),
                               Text(
-                               // textAlign: TextAlign.center,
-                                itemNames[index],  // Use the corresponding name for each container
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                // textAlign: TextAlign.center,
+                                itemNames[
+                                    index], // Use the corresponding name for each container
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               Text(
                                 itemNames1[index],
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
-                                  color:Color.fromARGB(255, 18, 118, 21),
+                                  color: Color.fromARGB(255, 18, 118, 21),
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -354,12 +416,11 @@ class _SearchBarAppState extends State<SearchBarApp> {
                             ],
                           ),
                         ),
-                      );     
-                      }
-                  ),
-                )
-               //Image.asset("assets/img4.jpg"),
-  
+                      );
+                    }),
+              )
+              //Image.asset("assets/img4.jpg"),
+
               // GridView.count(crossAxisCount: 2,
               //   children: [
               //     Container(
@@ -368,58 +429,58 @@ class _SearchBarAppState extends State<SearchBarApp> {
               //   ],
               // const SizedBox(height: 100),
               // MyGridView(),
-          //               // )
-          // SizedBox(height: 100,),
-          //     GridView.count(
-          //   primary: false,
-          //   //padding: const EdgeInsets.all(20),
-          //   //crossAxisSpacing: 5,
-          //   mainAxisSpacing: 5,
-          //   crossAxisCount: 2,
-          //   childAspectRatio: 0.75,
-          //   physics: NeverScrollableScrollPhysics(),
-          //   children: <Widget>[
-          //     Container(
-          //       height: 20,
-          //       padding: const EdgeInsets.all(8),
-          //       color: Colors.teal[100],
-          //       child: const Text("He'd have you all unravel at the"),
-          //     ),
-          //     Container(
-          //       height: 20,
-          //       padding: const EdgeInsets.all(8),
-          //       color: Colors.teal[200],
-          //       child: const Text('Heed not the rabble'),
-          //     ),
-          //     Container(
-          //       height: 20,
-          //       padding: const EdgeInsets.all(8),
-          //       color: Colors.teal[300],
-          //       child: const Text('Sound of screams but the'),
-          //     ),
-          //     Container(
-          //       height: 20,
-          //       padding: const EdgeInsets.all(8),
-          //       color: Colors.teal[400],
-          //       child: const Text('Who scream'),
-          //     ),
-          //     Container(
-          //       height: 20,
-          //       padding: const EdgeInsets.all(8),
-          //       color: Colors.teal[500],
-          //       child: const Text('Revolution is coming...'),
-          //     ),
-          //     Container(
-          //       height: 20,
-          //       padding: const EdgeInsets.all(8),
-          //       color: Colors.teal[600],
-          //       child: const Text('Revolution, they...'),
-          //     ),
-          //   ],
-          // )
-          
-               //Column(
-                
+              //               // )
+              // SizedBox(height: 100,),
+              //     GridView.count(
+              //   primary: false,
+              //   //padding: const EdgeInsets.all(20),
+              //   //crossAxisSpacing: 5,
+              //   mainAxisSpacing: 5,
+              //   crossAxisCount: 2,
+              //   childAspectRatio: 0.75,
+              //   physics: NeverScrollableScrollPhysics(),
+              //   children: <Widget>[
+              //     Container(
+              //       height: 20,
+              //       padding: const EdgeInsets.all(8),
+              //       color: Colors.teal[100],
+              //       child: const Text("He'd have you all unravel at the"),
+              //     ),
+              //     Container(
+              //       height: 20,
+              //       padding: const EdgeInsets.all(8),
+              //       color: Colors.teal[200],
+              //       child: const Text('Heed not the rabble'),
+              //     ),
+              //     Container(
+              //       height: 20,
+              //       padding: const EdgeInsets.all(8),
+              //       color: Colors.teal[300],
+              //       child: const Text('Sound of screams but the'),
+              //     ),
+              //     Container(
+              //       height: 20,
+              //       padding: const EdgeInsets.all(8),
+              //       color: Colors.teal[400],
+              //       child: const Text('Who scream'),
+              //     ),
+              //     Container(
+              //       height: 20,
+              //       padding: const EdgeInsets.all(8),
+              //       color: Colors.teal[500],
+              //       child: const Text('Revolution is coming...'),
+              //     ),
+              //     Container(
+              //       height: 20,
+              //       padding: const EdgeInsets.all(8),
+              //       color: Colors.teal[600],
+              //       child: const Text('Revolution, they...'),
+              //     ),
+              //   ],
+              // )
+
+              //Column(
+
               //   children: [
               //     Container(
               //         height: 150,
@@ -443,22 +504,22 @@ class _SearchBarAppState extends State<SearchBarApp> {
               //       ),
               //   ],
               // )
-          
-            //     Row(
-            // crossAxisAlignment: CrossAxisAlignment.start,
-            // children:[
-            //   Image.asset("assets/img3.jpg"),
-            //   Image.asset("assets/img3.jpg"),
-            //   Image.asset("assets/img3.jpg"),
-            //   Image.asset("assets/img3.jpg"),
-            //   Image.asset("assets/img3.jpg"),
-            //   Image.asset("assets/img3.jpg"),
-            //   Image.asset("assets/img3.jpg"),
-            //   Image.asset("assets/img3.jpg"),
-            //   Image.asset("assets/img3.jpg"),
-            // ]
-            
-            //     )
+
+              //     Row(
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              // children:[
+              //   Image.asset("assets/img3.jpg"),
+              //   Image.asset("assets/img3.jpg"),
+              //   Image.asset("assets/img3.jpg"),
+              //   Image.asset("assets/img3.jpg"),
+              //   Image.asset("assets/img3.jpg"),
+              //   Image.asset("assets/img3.jpg"),
+              //   Image.asset("assets/img3.jpg"),
+              //   Image.asset("assets/img3.jpg"),
+              //   Image.asset("assets/img3.jpg"),
+              // ]
+
+              //     )
               // GridView.count(
               //   crossAxisCount: 3,
               //   mainAxisSpacing: 8.0,
@@ -483,7 +544,7 @@ class _SearchBarAppState extends State<SearchBarApp> {
               //       offset: const Offset(7,15),)
               //         ],
               //           ),
-                        
+
               //         //color: Colors.black,
               //     child: const Center
               //     (
@@ -493,25 +554,21 @@ class _SearchBarAppState extends State<SearchBarApp> {
               //         (
               //           color: Colors.white,
               //           fontSize: 25,
-              //           fontWeight: FontWeight.w700, 
+              //           fontWeight: FontWeight.w700,
               //         ),
               //       ),
               //     ),
               //   ),
               // )
-              ]
-          
-              
+            ]
             ),
           ),
-
         ),
-        
       ),
     );
   }
-  void main() {
-  runApp(const SearchBarApp());
-}
-}
 
+  void main() {
+    runApp(const SearchBarApp());
+  }
+}
