@@ -1,5 +1,7 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+//import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+
 
 
 //import 'package:google_fonts/google_fonts.dart';
@@ -83,6 +85,26 @@ class _SearchBarAppState extends State<SearchBarApp> {
     'assets/img4.jpg',
     'assets/img1.jpg',
   ];
+  final List<String> logo1 = [
+    'assets/Flipkart-logo.png',
+    'assets/Amazon_logo.svg.png',
+    'assets/Flipkart-logo.png',
+    'assets/Amazon_logo.svg.png',
+    'assets/Flipkart-logo.png',
+    'assets/Amazon_logo.svg.png',
+    'assets/Flipkart-logo.png',
+    'assets/Amazon_logo.svg.png',
+    'assets/Flipkart-logo.png',
+    'assets/Amazon_logo.svg.png',
+    'assets/Flipkart-logo.png',
+    'assets/Amazon_logo.svg.png',
+    'assets/Flipkart-logo.png',
+    'assets/Amazon_logo.svg.png',
+    'assets/Flipkart-logo.png',
+    'assets/Amazon_logo.svg.png',
+    'assets/Flipkart-logo.png',
+    'assets/Amazon_logo.svg.png',
+  ];
   final List<String> itemNames = [
     'SONY Camera',
     'Logitech Mouse',
@@ -106,26 +128,52 @@ class _SearchBarAppState extends State<SearchBarApp> {
   ];
 
   final List<String> itemNames1 = [
-    'From ₹29,999',
-    'From ₹499',
-    'From ₹889',
-    'From ₹200',
-    'From ₹19,999',
-    'From ₹599',
-    'From ₹999',
-    'From ₹60,999',
-    'From ₹699',
-    'From ₹',
-    'From',
-    'Item 12',
-    'Item 13',
-    'Item 14',
-    'Item 15',
-    'Item 16',
-    'Item 17',
-    'Item 18',
-    'Item 19',
+    '₹29,999',
+    '₹499',
+    '₹889',
+    '₹200',
+    '₹19,999',
+    '₹599',
+    '₹999',
+    '₹60,999',
+    '₹699',
+    '₹699',
+    '₹699',
+    '₹699',
+    '₹69,913',
+    '₹14',
+    '₹15',
+    '₹16',
+    '₹17',
+    '₹18',
+    '₹19',
   ];
+
+  final List<String> itemNames2 = [
+    '14% off',
+    '23% off',
+    '39% off',
+    '28% off',
+    '22% off',
+    '26% off',
+    '29% off',
+    '28% off',
+    '14% off',
+    '23% off',
+    '39% off',
+    '28% off',
+    '22% off',
+    '26% off',
+    '29% off',
+    '28% off',
+    '23% off',
+    '39% off',
+    '28% off',
+    '22% off',
+  ];
+  
+
+
   //double get radius => 15.0;
 
   List<Widget> generateImagesTiles() {
@@ -318,9 +366,9 @@ class _SearchBarAppState extends State<SearchBarApp> {
               //    child: GridView.builder(gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),itemCount: 6 ,itemBuilder: (context,index){
               //     Text("Hello $index");
               //    },),
-             
+
               const SizedBox(height: 8),
-              
+
               // Padding(
               //   padding: const EdgeInsets.only(left: 20.0),
               //   child: Container(
@@ -335,121 +383,218 @@ class _SearchBarAppState extends State<SearchBarApp> {
               //   ),
               // ),
               //child: DropdownMenuExample(),
-  //             Padding(padding: EdgeInsets.all(8.0),
-  //         child: Row(
-  // //alignment: Alignment.centerLeft,
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Row(
+                  //alignment: Alignment.centerLeft,
 
-  //       children: [
-  //         Container(
-              
-  //           width: 100,
-  //           height: 35,
-  //           decoration: BoxDecoration(
-              
-  //               borderRadius: const BorderRadius.all(Radius.circular(25)),
-  //               color: Colors.white,
-  //               // 
-  //               border: Border.all(width: 2, color: Colors.black45),
-  //           ),
-            
-  //           //color: Colors.black,
-  //           child: const Center(
-  //             child: Text('Sort By',
-  //               style: TextStyle(
-  //               color: Colors.black,
-  //               fontSize: 15,
-  //               fontWeight: FontWeight.w300, 
-  //               ),
-  //             ),
-  //         ),
-  //         ),
-  //         const SizedBox(width: 10),
-  //         Container(
-              
-  //           width: 100,
-  //           height: 35,
-  //           decoration: BoxDecoration(
-              
-  //               borderRadius: const BorderRadius.all(Radius.circular(25)),
-  //               color: Colors.white,
-  //               // 
-  //               border: Border.all(width: 2, color: Colors.black45),
-  //           ),
-            
-  //           //color: Colors.black,
-  //           child: const Center(
-  //             child: Text('Brand',
-  //               style: TextStyle(
-  //               color: Colors.black,
-  //               fontSize: 15,
-  //               fontWeight: FontWeight.w300, 
-  //               ),
-  //             ),
-  //         ),
-  //         ),
-  //       ],
-  //         ),
-  //             ),
+                  children: [
+                    Container(
+                      width: 100,
+                      height: 35,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(25)),
+                        color: Colors.white,
+                        //
+                        border: Border.all(width: 2, color: Colors.black45),
+                      ),
+
+                      //color: Colors.black,
+                      child: const Center(
+                        child: Text(
+                          'Sort By',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Container(
+                      width: 100,
+                      height: 35,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(25)),
+                        color: Colors.white,
+                        //
+                        border: Border.all(width: 2, color: Colors.black45),
+                      ),
+
+                      //color: Colors.black,
+                      child: const Center(
+                        child: Text(
+                          'Brand',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              //const SizedBox(height: 0),
+             
+              Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: ListView.builder(
+  shrinkWrap: true,
+  physics: NeverScrollableScrollPhysics(),
+  itemCount: 18,
+  itemBuilder: (context, index) {
+    // ignore: non_constant_identifier_names
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10.0),
+        child: Container(
+          color: Colors.white,
+          child: Row(
+            children: [
+              const SizedBox(width: 15),
+              Image.asset(
+                gridImages[index],
+                height: 200,
+                width: 100,
+              ),
+              const SizedBox(width: 15),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 20),
+                  Text(
+                    itemNames[index],
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black,
+                    ),
+                  ),
+                  
+                const SizedBox(height: 5),
+                  Row(
+                    children: [
+                     
+                      //const SizedBox(width: 10),
+                      Text(
+                        itemNames2[index],
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 18, 118, 21),
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        itemNames1[index],
+                        style: const TextStyle(
+                          color: Colors.black38,
+                          fontSize: 20,
+                          decoration: TextDecoration.lineThrough,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        itemNames1[index],
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                 const SizedBox(height: 2),
+                 
+              Image.asset(
+                logo1[index],
+                height: 90,
+                width: 90,
+              ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  },
+)
+              ),
 
               //const SizedBox(height: 8),
 
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      crossAxisSpacing: 13.0,
-                      mainAxisSpacing: 13.0,
-                    ),
-                    itemCount: gridImages.length,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (BuildContext context, int index) {
-                      return ClipRRect(
-                        borderRadius: BorderRadius.circular(20.0),
-                        child: Container(
-                          color: Colors.white,
-                          // child:
-                          //       Image.asset(gridImages[index]),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                gridImages[index],
-                                height: 75,
-                                width: double.infinity,
-                                fit: BoxFit.contain,
-                                //fit: BoxFit.fill,
-                                //fit: applyBoxFit(100, inputSize, outputSize),
-                                // fit: BoxFit.scaleDown,
-                              ),
-                              const SizedBox(height: 5),
-                              Text(
-                                // textAlign: TextAlign.center,
-                                itemNames[
-                                    index], // Use the corresponding name for each container
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                itemNames1[index],
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  color: Color.fromARGB(255, 18, 118, 21),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    }),
-              )
+              // Padding(
+              //   padding: const EdgeInsets.all(8.0),
+              //   child: GridView.builder(
+              //       gridDelegate:
+              //           const SliverGridDelegateWithFixedCrossAxisCount(
+              //         crossAxisCount: 1,
+              //         crossAxisSpacing: 13.0,
+              //         mainAxisSpacing: 13.0,
+              //       ),
+              //       itemCount: gridImages.length,
+              //       shrinkWrap: true,
+              //       physics: const NeverScrollableScrollPhysics(),
+              //       itemBuilder: (BuildContext context, int index) {
+              //         return ClipRRect(
+              //           borderRadius: BorderRadius.circular(20.0),
+              //           child: Container(
+              //             color: Colors.white,
+              //             width: 10,
+              //             height: 100,
+              //             // child:
+              //             //       Image.asset(gridImages[index]),
+              //             child: Column(
+
+              //               //mainAxisAlignment: MainAxisAlignment.center,
+              //               children: [
+              //                  const SizedBox(height: 10),
+              //                 Image.asset(
+              //                   gridImages[index],
+              //                   height: 75,
+              //                   width: double.infinity,
+              //                   fit: BoxFit.contain,
+              //                   //fit: BoxFit.fill,
+              //                   //fit: applyBoxFit(100, inputSize, outputSize),
+              //                   // fit: BoxFit.scaleDown,
+              //                 ),
+              //                 const SizedBox(height: 5),
+              //                 Text(
+              //                   // textAlign: TextAlign.center,
+              //                   itemNames[
+              //                       index], // Use the corresponding name for each container
+              //                   textAlign: TextAlign.center,
+              //                   style: TextStyle(
+              //                     fontSize: 11,
+              //                     fontWeight: FontWeight.bold,
+              //                   ),
+              //                 ),
+              //                 Text(
+              //                   itemNames1[index],
+              //                   textAlign: TextAlign.center,
+              //                   style: const TextStyle(
+              //                     color: Color.fromARGB(255, 18, 118, 21),
+              //                     fontSize: 15,
+              //                     fontWeight: FontWeight.bold,
+              //                   ),
+              //                 ),
+              //               ],
+              //             ),
+              //           ),
+              //         );
+              //       }),
+              // )
+              // ListView(container(
+
+              // ),),
               //Image.asset("assets/img4.jpg"),
 
               // GridView.count(crossAxisCount: 2,
@@ -591,8 +736,7 @@ class _SearchBarAppState extends State<SearchBarApp> {
               //     ),
               //   ),
               // )
-            ]
-            ),
+            ]),
           ),
         ),
       ),

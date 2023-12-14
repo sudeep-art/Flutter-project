@@ -77,6 +77,8 @@ flutter:
     - assets/Image7.jpg
     - assets/laptop.jpg
     - assets/profile_picture.jpg
+    - assets/Amazon_logo.svg.png
+    - assets/Flipkart-logo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
