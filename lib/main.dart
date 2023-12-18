@@ -4,6 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_demo/category_screen.dart';
+import 'package:flutter_demo/item_list2.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'profile_screen.dart';
 import 'category_screen.dart';
 import 'item_lists.dart';
@@ -52,7 +54,7 @@ class _SearchBarAppState extends State<SearchBarApp> {
   int _currentIndex = 1;
   final List<Widget> _screens = <Widget>[
     //  CategoryScreen(),
-    Container(),
+    Items(),
     ProfileScreen(),
   ];
   // void _oneTtemTap(int Index){
@@ -188,11 +190,11 @@ class _SearchBarAppState extends State<SearchBarApp> {
       debugShowCheckedModeBanner: false,
       theme: themeData,
       home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 255, 198, 247),
+        backgroundColor: Color.fromARGB(255, 254, 219, 249),
         bottomNavigationBar: CurvedNavigationBar(
           //index: _currentIndex,
-          height: 70,
-          backgroundColor: Color.fromARGB(255, 255, 198, 247),
+          height: 50,
+          backgroundColor: Color.fromARGB(255, 254, 219, 249),
           items: [
             // ignore: non_constant_identifier_names
             const Icon(
@@ -229,16 +231,17 @@ class _SearchBarAppState extends State<SearchBarApp> {
           },
         ),
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 255, 198, 247),
+          backgroundColor: Color.fromARGB(255, 254, 219, 249),
+          
           title: Text(
-            '   POPSHOP 🛒',
+            '                POPSHOP 🛒',
             style: TextStyle(
               fontSize: 25,
               color: Color.fromARGB(255, 255, 198, 247),
               shadows: <Shadow>[
                 Shadow(
                   offset: Offset(0.0, 0.0),
-                  blurRadius: 14.0,
+                  blurRadius: 50.0,
                   color: Color.fromARGB(255, 248, 6, 212),
                 ),
               ],
@@ -251,7 +254,7 @@ class _SearchBarAppState extends State<SearchBarApp> {
               icon: Icon(
                 Icons.shopping_cart,
                 color: Color.fromARGB(255, 248, 6, 212),
-                size: 45,
+                size: 35,
               ),
               onPressed: () {
                 // Navigate to the new page
@@ -263,9 +266,11 @@ class _SearchBarAppState extends State<SearchBarApp> {
             )
           ],
         ),
+        
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(children: [
+              const SizedBox(height: 10),
               // SizedBox(child: _screens[_currentIndex]),
               SearchAnchor(
                   builder: (BuildContext context, SearchController controller) {
@@ -275,11 +280,26 @@ class _SearchBarAppState extends State<SearchBarApp> {
                       EdgeInsets.symmetric(horizontal: 15.0)),
                   //textAlign: TextAlign.cenzter,
                   hintText: 'Search Your Product',
-                  onTap: () {
-                    controller.openView();
-                  },
-                  onChanged: (_) {
-                    controller.openView();
+                  // onTap: () {
+                  //   controller.openView();
+                  // },
+                  // onChanged: (_) {
+                  //   controller.openView();
+                  // },
+
+              //  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                  onSubmitted: (value) {
+                    if(value=="macbook"){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Items()),
+                );}
+                if(value=="camera"){
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ItemsNew()),
+                );
+                }
                   },
                   leading: const Icon(
                     Icons.search,
@@ -363,7 +383,7 @@ class _SearchBarAppState extends State<SearchBarApp> {
               //const SizedBox(height: 8),
 
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(2.0),
                 child: GridView.builder(
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
@@ -377,21 +397,15 @@ class _SearchBarAppState extends State<SearchBarApp> {
                     itemBuilder: (BuildContext context, int index) {
                       return ClipRRect(
                         borderRadius: BorderRadius.circular(20.0),
-                        child: Container(
-                          color: Colors.white,
-                          // child:
-                          //       Image.asset(gridImages[index]),
+                        child: Expanded(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset(
                                 gridImages[index],
-                                height: 75,
-                                width: double.infinity,
+                                //height: 65,
+                             //   width: double.infinity,
                                 fit: BoxFit.contain,
-                                //fit: BoxFit.fill,
-                                //fit: applyBoxFit(100, inputSize, outputSize),
-                                // fit: BoxFit.scaleDown,
                               ),
                               const SizedBox(height: 5),
                               Text(
@@ -409,10 +423,11 @@ class _SearchBarAppState extends State<SearchBarApp> {
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   color: Color.fromARGB(255, 18, 118, 21),
-                                  fontSize: 15,
+                                  fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
+                              //const SizedBox(height: 2),
                             ],
                           ),
                         ),
@@ -560,8 +575,7 @@ class _SearchBarAppState extends State<SearchBarApp> {
               //     ),
               //   ),
               // )
-            ]
-            ),
+            ]),
           ),
         ),
       ),

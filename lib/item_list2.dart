@@ -61,19 +61,19 @@ class _MyAppState extends State<MyApp> {
           //colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 58, 183, 121)),
           //useMaterial3: true,
           ),
-      home: Items(),
+      home: ItemsNew(),
     );
   }
 }
 
-class Items extends StatefulWidget {
-  const Items({super.key});
+class ItemsNew extends StatefulWidget {
+  const ItemsNew({super.key});
 
   @override
-  State<Items> createState() => _SearchBarAppState();
+  State<ItemsNew> createState() => _SearchBarAppState();
 }
 
-class _SearchBarAppState extends State<Items> {
+class _SearchBarAppState extends State<ItemsNew> {
   // int _currentIndex = 1;
   // final List<Widget> _screens = <Widget>[
   //   //  CategoryScreen(),
@@ -311,7 +311,7 @@ class _SearchBarAppState extends State<Items> {
                         padding: const MaterialStatePropertyAll<EdgeInsets>(
                             EdgeInsets.symmetric(horizontal: 15.0)),
                         //textAlign: TextAlign.center,
-                        hintText: 'Search Your Product',
+                        hintText: 'You searched Camera',
                         onTap: () {
                           controller.openView();
                         },
@@ -741,6 +741,6 @@ class _SearchBarAppState extends State<Items> {
   }
 
   void main() {
-    runApp(const Items());
+    runApp(const ItemsNew());
   }
 }
