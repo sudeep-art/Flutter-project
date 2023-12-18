@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
+//import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,37 +15,16 @@ class MyApp extends StatefulWidget {
   @override
   State<MyApp> createState() => _MyAppState();
 }
+  // final Uri _url = Uri.parse('https://amzn.eu/d/9U2v2Az');
 
+  // launch_Uri(Uri url) async {
+  //   if (await canLaunchUrl(url)) {
+  //     await launchUrl(url);
+  //   } else {
+  //     Fluttertoast.showToast(msg: "Can't be opened!");
+  //   }
+  // }
 bool isLoading = true;
-
-Future<void> fetchData() async {
-  // Define the URL and headers
-  final String url =
-      'https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=0&categoryId=4209&country=US&sort=freshness&currency=USD&sizeSchema=US&lang=en-US';
-
-  final Map<String, String> headers = {
-    'X-RapidAPI-Host': 'asos2.p.rapidapi.com',
-    'X-RapidAPI-Key': 'b7dd77d181mshc055973ff8da0f4p1713c5jsn285b74e5c1d9',
-  };
-
-  // Perform the GET request
-  try {
-    final response = await http.get(Uri.parse(url), headers: headers);
-
-    // Check the status code to ensure the request was successful (status code 200)
-    if (response.statusCode == 200) {
-      // Handle the response data here
-
-      print('Response body: ${response.body}');
-    } else {
-      // If the request was not successful, print the status code
-      print('Request failed with status: ${response.statusCode}');
-    }
-  } catch (e) {
-    // Catch any errors that may occur during the request
-    print('Error during HTTP request: $e');
-  }
-}
 
 class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
@@ -95,24 +76,11 @@ class _SearchBarAppState extends State<Items> {
   ];
 
   final List<String> gridImages = [
-    'assets/Image.jpg',
-    'assets/Image1.jpg',
-    'assets/Image2.jpg',
-    'assets/Image3.jpg',
-    'assets/Image4.jpg',
-    'assets/Image5.jpg',
-    'assets/Image2.jpg',
-    'assets/iphone2.jpeg',
-    'assets/Image1.jpg',
-    'assets/Image.jpg',
-    'assets/Image3.jpg',
-    'assets/img1.jpg',
-    'assets/iphone2.jpeg',
-    'assets/img1.jpg',
-    'assets/img3.jpg',
-    'assets/iphone2.jpeg',
-    'assets/img4.jpg',
-    'assets/img1.jpg',
+    'assets/mac.jpeg',
+    'assets/mac.jpeg',
+    'assets/mac.jpeg',
+    'assets/mac.jpeg',
+    'assets/mac.jpeg',
   ];
   final List<String> logo1 = [
     'assets/Flipkart-logo.png',
@@ -135,47 +103,19 @@ class _SearchBarAppState extends State<Items> {
     'assets/Amazon_logo.svg.png',
   ];
   final List<String> itemNames = [
-    'SONY Camera',
-    'Logitech Mouse',
-    'HP bage',
-    'Girls Froksuit',
-    'ASUS ProArt TV',
-    'Remote control car',
-    'bage',
-    'I phone 14',
-    'Mouse',
-    'SONY Camera',
-    'Girls Dress',
-    'Item 12',
-    'Item 13',
-    'Item 14',
-    'Item 15',
-    'Item 16',
-    'Item 17',
-    'Item 18',
-    'Item 19',
+    'Macbook Pro ',
+    'Macbook Pro',
+    'Macbook Pro',
+    'Macbook Pro',
+    'Macbook Pro',
   ];
 
   final List<String> itemNames1 = [
-    '₹29,999',
+    '₹200',
     '₹499',
     '₹889',
-    '₹200',
-    '₹19,999',
     '₹599',
     '₹999',
-    '₹60,999',
-    '₹699',
-    '₹699',
-    '₹699',
-    '₹699',
-    '₹69,913',
-    '₹14',
-    '₹15',
-    '₹16',
-    '₹17',
-    '₹18',
-    '₹19',
   ];
 
   final List<String> itemNames2 = [
@@ -224,8 +164,7 @@ class _SearchBarAppState extends State<Items> {
     isLoading = true;
     Future.delayed(Durations.extralong4, () {
       isLoading = false;
-      setState(() {
-      });
+      setState(() {});
     });
   }
 
@@ -311,7 +250,7 @@ class _SearchBarAppState extends State<Items> {
                         padding: const MaterialStatePropertyAll<EdgeInsets>(
                             EdgeInsets.symmetric(horizontal: 15.0)),
                         //textAlign: TextAlign.center,
-                        hintText: 'Search Your Product',
+                        hintText: 'You searched Camera',
                         onTap: () {
                           controller.openView();
                         },
@@ -443,7 +382,7 @@ class _SearchBarAppState extends State<Items> {
                         child: ListView.builder(
                           shrinkWrap: true,
                           physics: NeverScrollableScrollPhysics(),
-                          itemCount: 18,
+                          itemCount: 5,
                           itemBuilder: (context, index) {
                             // ignore: non_constant_identifier_names
                             return Padding(
@@ -451,74 +390,79 @@ class _SearchBarAppState extends State<Items> {
                                   const EdgeInsets.symmetric(vertical: 5.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10.0),
-                                child: Container(
-                                  color: Colors.white,
-                                  child: Row(
-                                    children: [
-                                      const SizedBox(width: 15),
-                                      Image.asset(
-                                        gridImages[index],
-                                        height: 200,
-                                        width: 100,
-                                      ),
-                                      const SizedBox(width: 15),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          const SizedBox(height: 20),
-                                          Text(
-                                            itemNames[index],
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.w400,
-                                              color: Colors.black,
+                                child: GestureDetector(
+                                  onTap: () async {
+                                //   launch_Uri(_url);
+                                  },
+                                  child: Container(
+                                    color: Colors.white,
+                                    child: Row(
+                                      children: [
+                                        const SizedBox(width: 15),
+                                        Image.asset(
+                                          gridImages[index],
+                                          height: 200,
+                                          width: 100,
+                                        ),
+                                        const SizedBox(width: 15),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            const SizedBox(height: 20),
+                                            Text(
+                                              itemNames[index],
+                                              style: TextStyle(
+                                                fontSize: 20,
+                                                fontWeight: FontWeight.w400,
+                                                color: Colors.black,
+                                              ),
                                             ),
-                                          ),
-                                          const SizedBox(height: 5),
-                                          Row(
-                                            children: [
-                                              //const SizedBox(width: 10),
-                                              Text(
-                                                itemNames2[index],
-                                                style: TextStyle(
-                                                  color: Color.fromARGB(
-                                                      255, 18, 118, 21),
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.bold,
+                                            const SizedBox(height: 5),
+                                            Row(
+                                              children: [
+                                                //const SizedBox(width: 10),
+                                                Text(
+                                                  itemNames2[index],
+                                                  style: TextStyle(
+                                                    color: Color.fromARGB(
+                                                        255, 18, 118, 21),
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
                                                 ),
-                                              ),
-                                              const SizedBox(width: 10),
-                                              Text(
-                                                itemNames1[index],
-                                                style: const TextStyle(
-                                                  color: Colors.black38,
-                                                  fontSize: 20,
-                                                  decoration: TextDecoration
-                                                      .lineThrough,
-                                                  fontWeight: FontWeight.bold,
+                                                const SizedBox(width: 10),
+                                                Text(
+                                                  itemNames1[index],
+                                                  style: const TextStyle(
+                                                    color: Colors.black38,
+                                                    fontSize: 20,
+                                                    decoration: TextDecoration
+                                                        .lineThrough,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
                                                 ),
-                                              ),
-                                              const SizedBox(width: 10),
-                                              Text(
-                                                itemNames1[index],
-                                                style: const TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.bold,
+                                                const SizedBox(width: 10),
+                                                Text(
+                                                  itemNames1[index],
+                                                  style: const TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                          const SizedBox(height: 2),
-                                          Image.asset(
-                                            logo1[index],
-                                            height: 90,
-                                            width: 90,
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+                                              ],
+                                            ),
+                                            const SizedBox(height: 2),
+                                            Image.asset(
+                                              logo1[index],
+                                              height: 90,
+                                              width: 90,
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),

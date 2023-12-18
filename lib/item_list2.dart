@@ -95,24 +95,11 @@ class _SearchBarAppState extends State<ItemsNew> {
   ];
 
   final List<String> gridImages = [
-    'assets/Image.jpg',
-    'assets/Image1.jpg',
-    'assets/Image2.jpg',
-    'assets/Image3.jpg',
-    'assets/Image4.jpg',
-    'assets/Image5.jpg',
-    'assets/Image2.jpg',
-    'assets/iphone2.jpeg',
-    'assets/Image1.jpg',
-    'assets/Image.jpg',
-    'assets/Image3.jpg',
-    'assets/img1.jpg',
-    'assets/iphone2.jpeg',
-    'assets/img1.jpg',
-    'assets/img3.jpg',
-    'assets/iphone2.jpeg',
-    'assets/img4.jpg',
-    'assets/img1.jpg',
+    'assets/camera.jpeg',
+    'assets/camera.jpeg',
+    'assets/camera.jpeg',
+    'assets/camera.jpeg',
+    'assets/camera.jpeg',
   ];
   final List<String> logo1 = [
     'assets/Flipkart-logo.png',
@@ -135,47 +122,19 @@ class _SearchBarAppState extends State<ItemsNew> {
     'assets/Amazon_logo.svg.png',
   ];
   final List<String> itemNames = [
-    'SONY Camera',
-    'Logitech Mouse',
-    'HP bage',
-    'Girls Froksuit',
-    'ASUS ProArt TV',
-    'Remote control car',
-    'bage',
-    'I phone 14',
-    'Mouse',
-    'SONY Camera',
-    'Girls Dress',
-    'Item 12',
-    'Item 13',
-    'Item 14',
-    'Item 15',
-    'Item 16',
-    'Item 17',
-    'Item 18',
-    'Item 19',
+    'Sony Alpha ILC610Y ',
+    'Sony Alpha ILC610Y',
+    'Sony Alpha ILC610Y',
+    'Sony Alpha ILC610Y',
+    'Sony Alpha ILC610Y',
   ];
 
   final List<String> itemNames1 = [
-    '₹29,999',
-    '₹499',
-    '₹889',
-    '₹200',
-    '₹19,999',
-    '₹599',
-    '₹999',
-    '₹60,999',
-    '₹699',
-    '₹699',
-    '₹699',
-    '₹699',
-    '₹69,913',
-    '₹14',
-    '₹15',
-    '₹16',
-    '₹17',
-    '₹18',
-    '₹19',
+    '₹2000',
+    '₹4999',
+    '₹7889',
+    '₹15599',
+    '₹20099',
   ];
 
   final List<String> itemNames2 = [
@@ -443,7 +402,7 @@ class _SearchBarAppState extends State<ItemsNew> {
                         child: ListView.builder(
                           shrinkWrap: true,
                           physics: NeverScrollableScrollPhysics(),
-                          itemCount: 18,
+                          itemCount: 5,
                           itemBuilder: (context, index) {
                             // ignore: non_constant_identifier_names
                             return Padding(

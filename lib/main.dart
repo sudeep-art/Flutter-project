@@ -232,8 +232,8 @@ class _SearchBarAppState extends State<SearchBarApp> {
         ),
         appBar: AppBar(
           backgroundColor: Color.fromARGB(255, 254, 219, 249),
-          
-          title: Text(
+
+          title: const Text(
             '                POPSHOP 🛒',
             style: TextStyle(
               fontSize: 25,
@@ -397,15 +397,18 @@ class _SearchBarAppState extends State<SearchBarApp> {
                     itemBuilder: (BuildContext context, int index) {
                       return ClipRRect(
                         borderRadius: BorderRadius.circular(20.0),
-                        child: Expanded(
+                        child: Container(
+                          color: Colors.white,
+                          height: 200,
+                          width: 200,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset(
                                 gridImages[index],
-                                //height: 65,
-                             //   width: double.infinity,
-                                fit: BoxFit.contain,
+                                height: 65,
+                              width: double.infinity,
+                                fit: BoxFit.scaleDown,
                               ),
                               const SizedBox(height: 5),
                               Text(
