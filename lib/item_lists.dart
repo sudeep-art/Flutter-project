@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:http/http.dart' as http;
+//import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:http/http.dart' as http;
 //import 'package:url_launcher/url_launcher.dart';
 
 void main() {
@@ -161,11 +161,11 @@ class _SearchBarAppState extends State<Items> {
   get callbackFunction => null;
   void initState() {
     super.initState();
-    isLoading = true;
-    Future.delayed(Durations.extralong4, () {
-      isLoading = false;
-      setState(() {});
-    });
+    isLoading = false;
+    // Future.delayed(Durations.extralong4, () {
+    //   isLoading = false;
+    //   setState(() {});
+    // });
   }
 
   @override

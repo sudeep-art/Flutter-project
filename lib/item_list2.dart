@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:http/http.dart' as http;
+//import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -26,8 +26,9 @@ Future<void> fetchData() async {
     'X-RapidAPI-Key': 'b7dd77d181mshc055973ff8da0f4p1713c5jsn285b74e5c1d9',
   };
 
-  // Perform the GET request
+  //Perform the GET request
   try {
+    var http;
     final response = await http.get(Uri.parse(url), headers: headers);
 
     // Check the status code to ensure the request was successful (status code 200)
@@ -47,7 +48,6 @@ Future<void> fetchData() async {
 
 class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
-
 
   @override
   Widget build(BuildContext context) {
@@ -178,15 +178,17 @@ class _SearchBarAppState extends State<ItemsNew> {
   get options => null;
 
   get callbackFunction => null;
+
+  @override
   void initState() {
     super.initState();
-    isLoading = true;
-    Future.delayed(Durations.extralong4, () {
+    isLoading = false;
+    Future.delayed(Duration(seconds: 3));
+    setState(() {
       isLoading = false;
-      setState(() {
-      });
     });
   }
+
 
   @override
   Widget build(BuildContext context) {

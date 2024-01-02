@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_demo/category_screen.dart';
 import 'package:flutter_demo/item_list2.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+//import 'package:fluttertoast/fluttertoast.dart';
 import 'profile_screen.dart';
 import 'category_screen.dart';
 import 'item_lists.dart';
@@ -30,14 +30,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'POPSHOP',
-      // style: TextStyle(
-      //         fontWeight: FontWeight.bold, // Set the font weight to bold
-      //       ),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          //colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 58, 183, 121)),
-          //useMaterial3: true,
-          ),
+      theme: ThemeData(),
       home: SearchBarApp(),
     );
   }
@@ -193,7 +187,7 @@ class _SearchBarAppState extends State<SearchBarApp> {
         backgroundColor: Color.fromARGB(255, 254, 219, 249),
         bottomNavigationBar: CurvedNavigationBar(
           //index: _currentIndex,
-          height: 50,
+          height: 70,
           backgroundColor: Color.fromARGB(255, 254, 219, 249),
           items: [
             // ignore: non_constant_identifier_names
@@ -232,16 +226,15 @@ class _SearchBarAppState extends State<SearchBarApp> {
         ),
         appBar: AppBar(
           backgroundColor: Color.fromARGB(255, 254, 219, 249),
-
           title: const Text(
-            '                POPSHOP 🛒',
+            '   POPSHOP 🛒',
             style: TextStyle(
               fontSize: 25,
               color: Color.fromARGB(255, 255, 198, 247),
               shadows: <Shadow>[
                 Shadow(
                   offset: Offset(0.0, 0.0),
-                  blurRadius: 50.0,
+                  blurRadius: 14.0,
                   color: Color.fromARGB(255, 248, 6, 212),
                 ),
               ],
@@ -261,12 +254,13 @@ class _SearchBarAppState extends State<SearchBarApp> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => CategoryScreen()),
+                  
                 );
               },
             )
           ],
+          
         ),
-        
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(children: [
@@ -287,19 +281,20 @@ class _SearchBarAppState extends State<SearchBarApp> {
                   //   controller.openView();
                   // },
 
-              //  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                  //  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
                   onSubmitted: (value) {
-                    if(value=="macbook"){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Items()),
-                );}
-                if(value=="camera"){
-                  Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ItemsNew()),
-                );
-                }
+                    if (value == "macbook") {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Items()),
+                      );
+                    }
+                    if (value == "camera") {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ItemsNew()),
+                      );
+                    }
                   },
                   leading: const Icon(
                     Icons.search,
@@ -407,7 +402,7 @@ class _SearchBarAppState extends State<SearchBarApp> {
                               Image.asset(
                                 gridImages[index],
                                 height: 65,
-                              width: double.infinity,
+                                width: double.infinity,
                                 fit: BoxFit.scaleDown,
                               ),
                               const SizedBox(height: 5),
